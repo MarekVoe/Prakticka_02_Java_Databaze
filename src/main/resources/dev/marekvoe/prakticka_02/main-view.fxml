@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox alignment="TOP_CENTER" prefHeight="402.0" prefWidth="713.0" spacing="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="dev.marekvoe.prakticka_02.MainController">
+   <children>
+      <HBox alignment="TOP_CENTER" prefHeight="32.0" prefWidth="420.0">
+         <children>
+            <Text fill="#002983" strokeType="OUTSIDE" strokeWidth="0.0" text="Knihovna" wrappingWidth="106.4765625">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="329.0" prefWidth="713.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="122.0" prefWidth="601.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Zobrazit:">
+                     <VBox.margin>
+                        <Insets bottom="2.0" />
+                     </VBox.margin>
+                  </Text>
+                  <ComboBox fx:id="zobrazeniComboBox" onAction="#onZobrazeniChange" prefWidth="150.0">
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </ComboBox>
+                  <TableView fx:id="mainTableView" prefHeight="252.0" prefWidth="601.0" visible="false">
+                    <columns>
+                      <TableColumn prefWidth="75.0" text="id_ctenar" />
+                      <TableColumn prefWidth="75.0" text="jmeno" />
+                        <TableColumn prefWidth="75.0" text="prijmeni" />
+                        <TableColumn prefWidth="75.0" text="email" />
+                        <TableColumn prefWidth="75.0" text="telefon" />
+                        <TableColumn prefWidth="65.0" text="mesto" />
+                        <TableColumn minWidth="2.0" prefWidth="85.0" text="ulice" />
+                        <TableColumn prefWidth="75.0" text="psc" />
+                    </columns>
+                     <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                     </columnResizePolicy>
+                  </TableView>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+      <Separator prefWidth="200.0" />
+      <HBox fx:id="filtryContainer" alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0" visible="false">
+         <children>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Filtrace dat">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="10.0" />
+                     </VBox.margin>
+                  </Text>
+                  <TextField fx:id="filtrField" alignment="CENTER" maxWidth="-Infinity" onKeyPressed="#onTextFieldChange">
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <HBox fx:id="ctenariFiltryContainer" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" visible="false">
+                     <children>
+                        <RadioButton mnemonicParsing="false" text="Podle jména">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                           <toggleGroup>
+                              <ToggleGroup fx:id="tgCtenarFiltry" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Podle příjmení" toggleGroup="$tgCtenarFiltry">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                        <RadioButton mnemonicParsing="false" text="Podle města" toggleGroup="$tgCtenarFiltry">
+                           <HBox.margin>
+                              <Insets left="10.0" right="10.0" />
+                           </HBox.margin>
+                        </RadioButton>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="10.0" top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>
